@@ -1,0 +1,48 @@
+<div class="container">
+    <form #form="ngForm" (submit)="submitForm(form)" novalidate>
+        <div class="jumbotron"><h1>İş Başvuru Formu</h1></div>
+        <div class="form-group" [class.has-error]="firstName.invalid && firstName.dirty">
+            <label  class="control-label">Ad</label>
+            <input type="text" #firstName="ngModel" required minlength="3"  class="form-control" name="firstName" [(ngModel)]="model.firstName" >
+            <div *ngIf="firstName.invalid && firstName.dirty" class="alert-danger">Ad Zorunlu ve en az üç harfli</div>
+        </div>
+        <div class="form-group" [class.has-error]="lastName.invalid && lastName.touched">
+            <label  class="control-label">Soyad</label>
+            <input type="text" class="form-control" name="lastName" #lastName="ngModel" [(ngModel)]="model.lastName" maxlength="6" required>
+            <div *ngIf="lastName.invalid && lastName.touched" class="alert-danger">Soyad en fazla 6 harfli olmalıdır</div>
+        </div>
+        <label>Çlışma Şekli</label>
+        <div class="checkbox">
+            <label >
+                <input type="checkbox" name="is-full-time" name="isFullTime" [(ngModel)]="model.isFullTime">Tam zamanlı
+            </label>
+        </div>
+        <label>Ödeme Şekli</label>
+        <div class="radio">
+            <label >
+                <input type="radio" name="paymnetType" value="week" [(ngModel)]="model.paymentType" checked>Haftalık
+            </label>
+        </div>
+        <div class="radio">
+            <label >
+                <input type="radio" name="paymnetType" value="month" [(ngModel)]="model.paymentType">Aylık
+            </label>
+        </div>
+        <div class="form-group" [class.has-error]="hasLanguageError && languages.dirty">
+            <label class="control-label">Ana Dil</label>
+            <select #language="ngModel" class="form-control" [(ngModel)]="model.language" name="language" (blur)="validateLanguage(language.value)" (change)="validateLanguage(language.value)">
+                <option value="default">Lütfen bir dil seçiniz</option>
+                <option *ngFor="let lang of languages" >{{lang}}</option>
+            </select>
+        </div>
+        <button type="submit"class="btn btn-primary" [disabled]="form.invalid==true || hasLanguageError==true">Kaydet</button>
+    </form>
+</div>
+<div>
+    Pristine:{{form.pristine}}<br>
+    Valid:{{form.valid}}        
+</div>
+<div>
+    hasLanguageError:{{hasLanguageError}}<br>
+    Language.dirty :{{language.dirty}}
+</div>

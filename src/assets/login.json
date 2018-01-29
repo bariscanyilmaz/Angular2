@@ -1,0 +1,14 @@
+[
+    {
+        "login":true,
+        "name":"barış can yılmaz"
+    },
+    {
+        "login":false,
+        "name":"cihan dokur"
+    },
+    {
+        "login":true,
+        "name":"bill gates"
+    }
+]

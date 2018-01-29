@@ -46,12 +46,14 @@ export class AppComponent implements OnInit {
 
   constructor(private personService:PersonService){
     this.people=personService.People;
-    console.log(this.people);
+    //console.log(this.people);
   }
 
   PeopleList=[];
+  hasChange:Boolean=false;
 
   SayMyName($event){
+    this.hasChange=true;
     var people={name:$event.name,surname:$event.surname,state:'completed'}
     if(!this.PeopleList.find(res=>res.name==people.name)){
       this.PeopleList.push(people);

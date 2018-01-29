@@ -11,7 +11,8 @@
         "assets",
         "favicon.ico", 
         { "glob": "package.json", "input": "../", "output": "./assets/" },
-        { "glob": "data.json", "input": "./", "output": "./assets/" }
+        { "glob": "data.json", "input": "./", "output": "./assets/" },
+        { "glob": "login.json", "input": "./", "output": "./assets/" }
       ],
       "index": "index.html",
       "main": "main.ts",
