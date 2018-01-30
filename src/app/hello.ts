@@ -14,7 +14,7 @@ export class HelloComponent implements OnInit{
      *
      */
     hasLanguageError:boolean=true;
-    model=new EmployeeModel("barış can","yılmaz",true,"month","default");
+    model=new EmployeeModel("barış can","yılmaz",true,"month","default",new Date(1999,2,24),4);
     languages=["İngilizce","Türkçe","Almanca","Diğer"];
     constructor() {
         

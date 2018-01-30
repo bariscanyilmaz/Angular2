@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { RatingModule } from 'ngx-bootstrap/rating';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import {capitalLetter} from './capitalLetter';
 import { AppComponent } from './app.component';
 import { PersonListComponent } from './person-list.component';
@@ -28,7 +30,9 @@ import {GuardActiveComponent} from './GuardActive';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing      
+    routing,
+    BsDatepickerModule.forRoot(),
+    RatingModule.forRoot()    
   ],
   providers: [PersonService,GuardDeactiveComponent,GuardService,GuardActiveComponent],
   bootstrap: [MenuComponent]
