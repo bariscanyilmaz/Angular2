@@ -3,13 +3,22 @@
         <div class="jumbotron"><h1>İş Başvuru Formu</h1></div>
         <div class="form-group" [class.has-error]="firstName.invalid && firstName.dirty">
             <label  class="control-label">Ad</label>
-            <input type="text" #firstName="ngModel" required minlength="3"  class="form-control" name="firstName" [(ngModel)]="model.firstName" >
+            <input type="text" #firstName="ngModel" required minlength="3"  class="form-control" name="firstName" [(ngModel)]="model.firstName" (ngModelChange)="UpperCaseName($event,'firstName')">
             <div *ngIf="firstName.invalid && firstName.dirty" class="alert-danger">Ad Zorunlu ve en az üç harfli</div>
         </div>
         <div class="form-group" [class.has-error]="lastName.invalid && lastName.touched">
             <label  class="control-label">Soyad</label>
-            <input type="text" class="form-control" name="lastName" #lastName="ngModel" [(ngModel)]="model.lastName" maxlength="6" required>
+            <input type="text" class="form-control" name="lastName" #lastName="ngModel" [(ngModel)]="model.lastName" maxlength="6" required (mgModelChange)="UpperCaseName($event,'lastName')">
             <div *ngIf="lastName.invalid && lastName.touched" class="alert-danger">Soyad en fazla 6 harfli olmalıdır</div>
+        </div>
+        <div class="form-group" [class.has-error]="email.invalid && email.touched"> 
+            <label  class="control-label">Email</label>
+            <input type="text" class="form-control" [pattern]="pattern" name="email" #email="ngModel" [(ngModel)]="model.email">
+            <div *ngIf="email.invalid && email.touched" class="alert-danger">Lütfen örnekteki gibi epostanızı giriniz</div>
+        </div>
+        <label>Beklenen Maaş</label>
+        <div class="form-group">
+            <input type="text" class="form-control" name="sallery" #sallery="ngModel" [(ngModel)]="model.sallery" (keypress)="checkVale($event)">
         </div>
         <label>Çlışma Şekli</label>
         <div class="checkbox">
@@ -25,7 +34,7 @@
         </div>
         <div class="radio">
             <label >
-                <input type="radio" name="paymnetType" value="month" [(ngModel)]="model.paymentType">Aylık
+                <input type="radio" name="paymentType" value="month" [(ngModel)]="model.paymentType">Aylık
             </label>
         </div>
         <div class="form-group" [class.has-error]="hasLanguageError && languages.dirty">

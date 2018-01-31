@@ -6,10 +6,11 @@ export class EmployeeModel{
     language:string;
     birthDate:Date;
     rate:number;
+    email:string;
     /**
      *
      */
-    constructor(FirstName:string,LastName:string,IsFullTime:boolean,PaymentType:string,Language:string="default",BirthDate:Date,Rate:number) {
+    constructor(FirstName:string,LastName:string,IsFullTime:boolean,PaymentType:string,Language:string="default",BirthDate:Date,Rate:number,Email:string) {
         this.firstName=FirstName;
         this.lastName=LastName;
         this.isFullTime=IsFullTime;
@@ -17,5 +18,6 @@ export class EmployeeModel{
         this.language=Language;
         this.birthDate=BirthDate;
         this.rate=Rate;
+        this.email=Email;
     }
 }

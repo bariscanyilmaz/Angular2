@@ -16,6 +16,8 @@ import {MenuComponent} from './app.menu';
 import {GuardDeactiveComponent} from './GuardDeactive';
 import {GuardService} from './GuardService';
 import {GuardActiveComponent} from './GuardActive';
+import {FormPost} from '../Server/form-post.server';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,7 @@ import {GuardActiveComponent} from './GuardActive';
     BsDatepickerModule.forRoot(),
     RatingModule.forRoot()    
   ],
-  providers: [PersonService,GuardDeactiveComponent,GuardService,GuardActiveComponent],
+  providers: [PersonService,GuardDeactiveComponent,GuardService,GuardActiveComponent,FormPost],
   bootstrap: [MenuComponent]
   
 })
